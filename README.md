@@ -10,20 +10,20 @@ When completed, will be downloadable through Mason.
 Example of proper framework usage:
 
 ```chapel
-use Gorila as grla;
+use Gorila;
 
-# Agent #
-agent = new grla.DQN(grla.Regressor(), pi, env.info,
+// Agent
+agent = new DQN(grla.Regressor(), pi, env.info,
                approx_params, batch_size,
                n_approx=1, init_replay_size,
-               max_replay_size, target_update_freg)
+               max_replay_size, target_update_freg) // Initializes new DQN Agent
 
-# Algorithm #
-alg = new grla.Entity(agent, env)
+// Algorithm
+alg = new grla.Entity(agent, env) // Creates RL algorithm object
 alg.fit(n_steps=init_replay_size,
-          n_steps_per_fit=init_replay_size)
+          n_steps_per_fit=init_replay_size) // Implements RL algorithm
 #...#
-alg.evaluate(n_episodes=10, render=True)
+alg.evaluate(n_episodes=10, render=True) // Evaluates success/failure of algorithm
 ```
 
 ## Contributing
