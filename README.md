@@ -3,7 +3,7 @@ A Chapel framework for distributed deep reinforcement learning.
 
 ## Installation
 
-When completed, will be downloadable through Mason.
+When completed, Gorila will be available through the Mason package manager.
 
 ## Usage
 
@@ -13,13 +13,13 @@ Example of proper framework usage:
 use Gorila;
 
 // Agent
-agent = new DQN(grla.Regressor(), pi, env.info,
+agent = new DQN(Regressor(), pi, env.info,
                approx_params, batch_size,
                n_approx=1, init_replay_size,
                max_replay_size, target_update_freg) // Initializes new DQN Agent
 
 // Algorithm
-alg = new grla.Entity(agent, env) // Creates RL algorithm object
+alg = new Entity(agent, env) // Creates RL algorithm object
 alg.fit(n_steps=init_replay_size,
           n_steps_per_fit=init_replay_size) // Implements RL algorithm
 #...#
