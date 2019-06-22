@@ -3,7 +3,7 @@ A Chapel framework for distributed deep reinforcement learning.
 
 ## Installation
 
-When completed, will be downloadable through Mason.
+When completed, Gorila will be available through the Mason package manager.
 
 ## Usage
 
