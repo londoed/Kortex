@@ -83,7 +83,7 @@ module Gorila {
         Returns:
             The derivative w.r.t. the  policy weights
       */
-      return (this.state, this.action) * ParametricPolicy.diff_log(state, action);
+      return (this.state, this.action) * diff_log(state, action);
     }
 
     proc set_weights(weights: []) {
