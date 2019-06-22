@@ -24,7 +24,29 @@ alg = new Entity(agent, env); // Creates RL algorithm object
 alg.fit(n_steps=init_replay_size,
           n_steps_per_fit=init_replay_size); // Implements RL algorithm
 //...//
-alg.evaluate(n_episodes=10, render=True); // Evaluates success/failure of algorithm
+alg.evaluate(n_episodes=10, render=true); // Evaluates success/failure of algorithm
+```
+
+Eventually, Gorila will be able to be called through Python while still using Chapel's parallelism.
+
+```python
+import gorila as grla
+
+grla.chpl_setup()
+
+# Agent #
+model = grla.Regressor()
+agent = grla.IMPALA(model, pi, env.info,
+                   approx_params, batch_size,
+                   n_approx=1, init_replay_size,
+                   max_replay_size, target_update_freg)
+agent.fit(n_steps=init_replay_size,
+          n_steps_per_fit=init_replay_size)
+
+#...#
+alg.evaluate(n_episodes=10, render=True)
+
+grla.chpl_cleanup()
 ```
 
 ## Contributing
