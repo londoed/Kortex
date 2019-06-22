@@ -105,4 +105,25 @@ module Gorila {
       return this.table.shape;
     }
   }
+
+  class EnsembleTable: Ensemble {
+    /*
+      Implements functions to manage table ensembles.
+    */
+    proc init(n_models: int, shape: [], prediction: string="mean") {
+      /*
+        Constructor.
+
+        Args:
+          n_models (int): number of models in the ensemble.
+          shape (array): shape of each table in the ensemble.
+          prediction (string): type of prediction to return.
+      */
+      var approximator_params = ['shape' => shape];
+    }
+
+    proc n_actions() {
+      return this._model[0].shape[-1];
+    }
+  }
 }
