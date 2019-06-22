@@ -37,3 +37,9 @@ alg.evaluate(n_episodes=10, render=True) // Evaluates success/failure of algorit
 ## Contributors
 
 - Eric Londo - creator, maintainer
+
+## Inspiration
+![alt text](https://github.com/londoed/Gorila/blob/master/images/GORILA.png)
+
+This framework is inspired by the original work done by DeepMind Technologies and can be found in this paper:
+<https://arxiv.org/pdf/1507.04296.pdf>
