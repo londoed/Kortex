@@ -40,7 +40,10 @@ agent = grla.IMPALA(model, pi, env.info,
                    approx_params, batch_size,
                    n_approx=1, init_replay_size,
                    max_replay_size, target_update_freg)
-agent.fit(n_steps=init_replay_size,
+
+# Algorithm #
+alg = grla.Entity(agent, env)
+alg.fit(n_steps=init_replay_size,
           n_steps_per_fit=init_replay_size)
 
 #...#
