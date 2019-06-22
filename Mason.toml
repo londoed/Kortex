@@ -1,0 +1,8 @@
+[brick]
+name = "Gorila"
+version = "0.0.1"
+authors = ["Eric Londo: londoed@comcast.net"]
+source = "https://github.com/londoed/Gorila"
+chplVersion = "1.19.0"
+
+[dependencies]
