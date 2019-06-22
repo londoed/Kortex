@@ -13,7 +13,8 @@ Example of proper framework usage:
 use Gorila;
 
 // Agent
-agent = new DQN(Regressor(), pi, env.info,
+regressor = new Regressor()
+agent = new DQN(regressor, pi, env.info,
                approx_params, batch_size,
                n_approx=1, init_replay_size,
                max_replay_size, target_update_freg); // Initializes new DQN Agent
