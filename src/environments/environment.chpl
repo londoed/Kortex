@@ -63,7 +63,7 @@ module Gorila {
         Reset the current state.
 
         Args:
-            state (np.ndarray, None): the state to set to the current state.
+            state (array): the state to set to the current state.
         Returns:
             The current state.
       */
@@ -75,7 +75,7 @@ module Gorila {
         Move the agent from its current state according to the action.
 
         Args:
-            action (np.ndarray): the action to execute.
+            action (array): the action to execute.
         Returns:
             The state reached by the agent executing ``action`` in its current
             state.
