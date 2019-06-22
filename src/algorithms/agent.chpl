@@ -20,12 +20,12 @@ module Gorila {
       this.next_action = nil;
     }
 
-    proc fit(dataset) {
+    proc fit(dataset: []) {
       /*
         Fit step.
 
           Args:
-              dataset (list): the dataset.
+              dataset (array): the dataset.
       */
       writeln("Agent is an abstract class, fit cannot be executed.")
     }

@@ -56,6 +56,7 @@ module Gorila {
         The agent is moved for a provided number of steps, episodes, or from
         a set of initial states for the whole episode. By default, the
         environment is reset.
+
         Args:
             init_states: The starting states of each episode.
             n_steps: Number of steps to move the agent.
@@ -126,6 +127,7 @@ module Gorila {
     proc step(render: bool) {
       /*
         Agent takes a single step.
+        
           Args:
               render: Whether to render or not.
           Returns:
