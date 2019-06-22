@@ -16,14 +16,14 @@ use Gorila;
 agent = new DQN(Regressor(), pi, env.info,
                approx_params, batch_size,
                n_approx=1, init_replay_size,
-               max_replay_size, target_update_freg) // Initializes new DQN Agent
+               max_replay_size, target_update_freg); // Initializes new DQN Agent
 
 // Algorithm
-alg = new Entity(agent, env) // Creates RL algorithm object
+alg = new Entity(agent, env); // Creates RL algorithm object
 alg.fit(n_steps=init_replay_size,
-          n_steps_per_fit=init_replay_size) // Implements RL algorithm
-#...#
-alg.evaluate(n_episodes=10, render=True) // Evaluates success/failure of algorithm
+          n_steps_per_fit=init_replay_size); // Implements RL algorithm
+//...//
+alg.evaluate(n_episodes=10, render=True); // Evaluates success/failure of algorithm
 ```
 
 ## Contributing
