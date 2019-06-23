@@ -2,7 +2,7 @@
 name = "Kortex"
 version = "0.0.1"
 authors = ["Eric Londo: londoed@comcast.net"]
-source = "https://github.com/londoed/Gorila"
+source = "https://github.com/londoed/Kortex"
 chplVersion = "1.19.0"
 
 [dependencies]
