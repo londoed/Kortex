@@ -1,4 +1,4 @@
-module Gorila {
+module Kortex {
   class Distribution {
     /*
       Interface for Distributions to represent a generic probability distribution.

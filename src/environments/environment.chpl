@@ -1,4 +1,4 @@
-module Gorila {
+module Kortex {
   class ENVInfo {
     /*
       This class is used to store the information of the environment.

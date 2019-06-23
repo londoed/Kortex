@@ -1,5 +1,5 @@
-module Gorila {
-  
+module Kortex {
+
   use LinearAlgebra;
 
   class Ensemble {

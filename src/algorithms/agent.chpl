@@ -1,4 +1,4 @@
-module Gorila {
+module Kortex {
   class Agent {
     /*
       This class implements the functions to manage the agent (e.g. move the agent

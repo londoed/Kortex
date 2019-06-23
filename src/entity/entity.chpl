@@ -1,7 +1,7 @@
-module Gorila {
+module Kortex {
   class Entity {
     /*
-      The central class to implement RL algorithms.
+      The central class to implement Deep RL algorithms.
     */
 
     proc init(agent: Agent, env: Environment, callbacks=nil) {
@@ -127,7 +127,7 @@ module Gorila {
     proc step(render: bool) {
       /*
         Agent takes a single step.
-        
+
           Args:
               render: Whether to render or not.
           Returns:

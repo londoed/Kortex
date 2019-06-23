@@ -1,4 +1,4 @@
-module Gorila {
+module Kortex {
   use LinearAlgebra;
   use Gorila.utils.table only Table;
 

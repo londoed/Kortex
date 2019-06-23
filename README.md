@@ -1,16 +1,16 @@
-# Gorila
+# Kortex
 A Chapel framework for distributed deep reinforcement learning.
 
 ## Installation
 
-When completed, Gorila will be available through the Mason package manager.
+When completed, Kortex will be available through the Mason package manager.
 
 ## Usage
 
 Example of proper framework usage:
 
 ```chapel
-use Gorila;
+use Kortex;
 
 // Agent
 model = new Regressor();
@@ -30,31 +30,31 @@ alg.evaluate(n_episodes=10, render=true); // Evaluates success/failure of algori
 Eventually, Gorila will be able to be called through Python while still using Chapel's parallelism.
 
 ```python
-import gorila as grla
+import kortex as kx
 
-grla.chpl_setup()
+kx.chpl_setup()
 
 # Agent #
-model = grla.Regressor()
-agent = grla.IMPALA(model, pi, env.info,
+model = kx.ResNet()
+agent = kx.IMPALA(model, pi, env.info,
                    approx_params, batch_size,
                    n_approx=1, init_replay_size,
                    max_replay_size, target_update_freg)
 
 # Algorithm #
-alg = grla.Entity(agent, env)
+alg = kx.Entity(agent, env)
 alg.fit(n_steps=init_replay_size,
           n_steps_per_fit=init_replay_size)
 
 #...#
 alg.evaluate(n_episodes=10, render=True)
 
-grla.chpl_cleanup()
+kx.chpl_cleanup()
 ```
 
 ## Contributing
 
-1. Fork it (<https://github.com/londoed/Gorila/fork>)
+1. Fork it (<https://github.com/londoed/Kortex/fork>)
 2. Create your feature branch (`git checkout -b my-new-feature`)
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
@@ -67,5 +67,5 @@ grla.chpl_cleanup()
 ## Inspiration
 ![alt text](https://github.com/londoed/Gorila/blob/master/images/GORILA.png)
 
-This framework is inspired by the original work done by DeepMind Technologies and can be found in this paper:
+This framework is inspired by the original work done by DeepMind Technologies LTD and can be found in this paper:
 <https://arxiv.org/pdf/1507.04296.pdf>

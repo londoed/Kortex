@@ -1,4 +1,4 @@
-module Gorila {
+module Kortex {
   // Numpy operations needed: ravel, arange, ndim
   class QRegressor {
     /*

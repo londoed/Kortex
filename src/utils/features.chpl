@@ -1,4 +1,4 @@
-module Gorila {
+module Kortex {
   use Math, LinearAlgebra;
 
   proc uniform_grid(n_centers: [], low: [], high: []) {

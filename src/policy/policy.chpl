@@ -1,4 +1,4 @@
-module Gorila {
+module Kortex {
   class Policy {
     /*
       Interface for representing a generic policy.
@@ -6,7 +6,7 @@ module Gorila {
       A policy is a probability distribution that gives the probability
       of taking an action given a specified state.
 
-      A policy is used by Gorila agents to interact with the environment.
+      A policy is used by Kortex agents to interact with the environment.
 
     */
     proc call(state_action: []) {
