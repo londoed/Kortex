@@ -13,14 +13,14 @@ module Kortex {
         this.callbacks = [];
       }
 
-      this._state = nil;
-      this._total_episodes = 0;
-      this._total_steps = 0;
-      this._current_episodes = 0;
-      this._episode_steps = 0;
-      this._n_episodes = nil;
-      this._n_steps_per_policy = nil;
-      this._n_episodes_per_policy = nil;
+      this.state = nil;
+      this.total_episodes = 0;
+      this.total_steps = 0;
+      this.current_episodes = 0;
+      this.episode_steps = 0;
+      this.n_episodes = nil;
+      this.n_steps_per_policy = nil;
+      this.n_episodes_per_policy = nil;
     }
 
     proc fit(n_steps: int, n_episoes: int, n_steps_per_policy: int, n_episodes_per_policy : int,
@@ -36,18 +36,17 @@ module Kortex {
           render: Whether to render the environment or not.
       */
 
-      // TODO:         assert (n_episodes_per_policy is not None and n_steps_per_policy is None) or (n_episodes_per_policy is None and n_steps_per_policy is not None)
+      assert((n_episodes_per_policy is not None and n_steps_per_policy is None) || (n_episodes_per_policy is None and n_steps_per_policy is not None))
 
-      this._n_steps_per_policy = n_steps_per_policy;
-      this._n_episodes_per_policy = n_episodes_per_policy;
+      this.n_steps_per_policy = n_steps_per_policy;
+      this.n_episodes_per_policy = n_episodes_per_policy;
 
       if n_steps_per_policy != nil {
-        var policy_cond = this._current_steps_counter >= this._n_steps_per_policy;
+        var policy_cond = this.current_steps_counter >= this.n_steps_per_policy;
       } else {
-        var policy_cond = this._current_steps_counter >= this._n_steps_per_policy;
+        var policy_cond = this.current_steps_counter >= this.n_steps_per_policy;
       }
-
-      Entity.run(n_steps, n_episodes, policy_cond, render);
+      run(n_steps, n_episodes, policy_cond, render);
     }
 
     proc evaluate(init_states: [] real, n_steps: int, n_episodes: int, render: bool=false) {
@@ -65,31 +64,31 @@ module Kortex {
       */
 
       var policy_cond: bool = false;
-      return Entity.run(n_steps, n_episodes, policy_cond, render, init_states);
+      return run(n_steps, n_episodes, policy_cond, render, init_states);
     }
 
     proc run(n_steps: int, n_episodes: int, policy_cond: bool, render: bool, init_states: [] real) {
       assert((n_episodes != nil && n_steps == nil && init_states == nil) || (n_episodes == nil && n_steps != nil && init_states == nil) || (n_episodes == nil && n_steps == nil && init_states != nil));
 
       if init_states != nil {
-        this._n_episodes = init_states.length;
+        this.n_episodes = init_states.length;
       } else {
-        this._n_episodes = n_episodes;
+        this.n_episodes = n_episodes;
       }
 
       if n_steps != nil {
-        var move_cond = this._total_steps < n_steps;
+        var move_cond: bool = this.total_steps < n_steps;
         return Entity.run_impl(move_cond, policy_cond, render, init_states);
       }
     }
 
     proc run_impl(move_cond: bool, policy_cond: bool, render: bool, init_states: [] real) {
-      this._total_episodes = 0;
-      this._total_steps = 0;
-      this._current_episodes = 0;
-      this._current_steps = 0;
+      this.total_episodes = 0;
+      this.total_steps = 0;
+      this.current_episodes = 0;
+      this.current_steps = 0;
 
-      var dataset: [];
+      var dataset = [];
           end: bool = true;
 
       while move_cond {
@@ -98,22 +97,22 @@ module Kortex {
         }
         var sample = Entity.step(render);
         dataset.append(sample);
-        this._total_steps += 1;
-        this._current_steps += 1;
+        this.total_steps += 1;
+        this.current_steps += 1;
 
         if sample[-1] {
-          this._total_episodes += 1;
-          this._current_episodes += 1;
+          this.total_episodes += 1;
+          this.current_episodes += 1;
         }
 
         if policy_cond {
           this.agent.fit(dataset);
-          this._current_episodes = 0;
-          this._current_steps = 0;
+          this.current_episodes = 0;
+          this.current_steps = 0;
 
           for callback in this.callbacks (
             var call_params = ['dataset' => dataset];
-            callback(**call_params);
+            callback(call_params);
           )
           dataset = [];
         }
@@ -135,17 +134,17 @@ module Kortex {
               agent, the reward obtained, the state reached, the absorbing flag
               of the reached state, and the last step flag.
       */
-      var action = this.agent.draw_action(this._state);
+      var action = this.agent.draw_action(this.state);
       var next_state, reward, absorbing, _ = this.env.step(action);
-      this._episode_steps += 1;
+      this.episode_steps += 1;
 
       if render {
         this.env.render();
       }
 
-      var last = !(this._episode_steps < this.env.info.horizon && !absorbing);
-      var state = this._state;
-      this._state = next_state.copy();
+      var last = !(this.episode_steps < this.env.info.horizon && !absorbing);
+      var state = this.state;
+      this.state = next_state.copy();
       return state, action, reward, next_state, absorbing, last;
     }
 
@@ -154,16 +153,16 @@ module Kortex {
         Reset the inital state of the agent.
       */
 
-      if init_states == nil || this._total_episodes_counter == this._n_episodes {
+      if init_states == nil || this.total_episodes_counter == this.n_episodes {
         init_states = nil;
       } else {
-        init_states = init_states[this._total_episodes_counter];
+        init_states = init_states[this.total_episodes_counter];
       }
 
       this.state = this.env.reset(init_states);
       this.agent.episode_start();
       this.agent.next_action = None;
-      this._episode_steps = 0;
+      this.episode_steps = 0;
     }
   }
 }
