@@ -57,7 +57,7 @@ module Kortex {
             The requested number of samples.
       */
       if this.current_sample_idx + n_samples >= this.sample_idxs {
-        this.sample_idxs = random.choice(this.size, this.size, replace=false);
+        this.sample_idxs = random_choice(this.size, this.size, replace=false);
         this.current_sample_idx = 0;
       }
 
@@ -97,7 +97,7 @@ module Kortex {
       this.absorbing = [nil for _ in 0..#this.max_size];
       this.last = [nil for _ in 0..#this.max_size];
 
-      this.sample_idxs = random.choice(this.init_size, this.init_size, replace=false);
+      this.sample_idxs = random_choice(this.init_size, this.init_size, replace=false);
       this.current_sample_idx = 0;
     }
 
