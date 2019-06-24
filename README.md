@@ -1,4 +1,4 @@
-# ![alt text](https://github.com/londoed/Kortex/blob/master/images/kortex_logo_grain.png)
+# ![alt text](https://github.com/londoed/Kortex/blob/master/images/kortex_logo_smaller.png)
 A Chapel framework for distributed deep reinforcement learning.
 
 ## Installation
@@ -27,7 +27,7 @@ alg.fit(n_steps=init_replay_size,
 alg.evaluate(n_episodes=10, render=true); // Evaluates success/failure of algorithm
 ```
 
-Eventually, Gorila will be able to be called through Python while still using Chapel's parallelism.
+Eventually, Kortex will be able to be called through Python while still using Chapel's parallelism.
 
 ```python
 import kortex as kx
