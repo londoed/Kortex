@@ -1,4 +1,4 @@
-# Kortex
+# ![alt text](https://github.com/londoed/Kortex/blob/master/images/kortex_logo_grain.png)
 A Chapel framework for distributed deep reinforcement learning.
 
 ## Installation
@@ -65,7 +65,7 @@ kx.chpl_cleanup()
 - Eric Londo - creator, maintainer
 
 ## Inspiration
-![alt text](https://github.com/londoed/Gorila/blob/master/images/GORILA.png)
+![alt text](https://github.com/londoed/Kortex/blob/master/images/GORILA.png)
 
 This framework is inspired by the original work done by DeepMind Technologies LTD and can be found in this paper:
 <https://arxiv.org/pdf/1507.04296.pdf>
