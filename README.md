@@ -31,11 +31,12 @@ Eventually, Kortex will be able to be called through Python while still using Ch
 
 ```python
 import kortex as kx
+import tensorflow as tf
 
 kx.chpl_setup()
 
 # Agent #
-model = kx.ResNet()
+model = kx.Regressor(tf.models.keras.ResNet50())
 agent = kx.IMPALA(model, pi, env.info,
                    approx_params, batch_size,
                    n_approx=1, init_replay_size,
