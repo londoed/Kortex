@@ -1,6 +1,6 @@
 module Kortex {
+  // Numpy functions needed: maximum(). asscalar(), dot(), sqrt()
   use LinearAlgebra;
-  use Gorila.utils.table only Table;
 
   class Parameter {
     /*
@@ -81,6 +81,73 @@ module Kortex {
           The shape of the table of parameters.
       */
       return this._n_updates.table.shape;
+    }
+  }
+
+  class LinearDecayParameter: Parameter {
+    /*
+      This class implements a linearly decaying parameter according to the
+      number of times it has been used.
+    */
+    proc init(value, min_value, n, size: Tuple={1,}) {
+      this.coeff = (min_value - value) / n;
+      super(LinearDecayParameter).init(value, min_value, size);
+    }
+
+    proc compute(idx) {
+      return this.coeff * this.n_updates[idx] + this.init_value;
+    }
+  }
+
+  class ExponentialDecayParameter: Parameter {
+    /*
+      This class implements an exponentially decaying parameter according
+      to the number of times it has been used.
+    */
+    proc init(value, decay_exp: real=1.0, min_value: real=nil, size: Tuple=(1,)) {
+      this.decay_exp = decay_exp;
+      super(ExponentialDecayParameter).init(value, min_value, size);
+    }
+
+    proc compute(idx) {
+      var n = maximum(this.n_updates[idx], 1);
+      return this.init_value / n**this.decay_exp;
+    }
+  }
+
+  class AdaptiveParameter {
+    /*
+      This class implements a basic adaptive gradient step. Instead of moving of
+      a step proportional to the gradient, takes a step limited by a given metric.
+      To specify the metric, the natural gradient has to be provided. If natural
+      gradient is not provided, the identity matrix is used.
+    */
+    proc init(value) {
+      this.eps = value;
+    }
+
+    proc call(args) {
+      return this.get_value(args);
+    }
+
+    proc get_value(args) {
+      if args.length == 2 {
+        var gradient = args[0],
+            nat_gradient = args[1],
+            tmp = asscalar(gradient.dot(nat_gradient)),
+            lambda_v = sqrt(tmp / (4.0 * this.epsilon));
+        lambda_v = max(lambda_v, 1e-8);
+        var step_length = 1.0 / (2.0 * lambda_v);
+        return step_length;
+      } else if args.length == 1 {
+        return get_value(args[0], args[0]);
+      } else {
+        return new Error.message("Adaptive parameters need gradient");
+      }
+    }
+
+    proc shape() {
+      return nil;
     }
   }
 }
