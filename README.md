@@ -1,4 +1,4 @@
-# ![alt text](https://github.com/londoed/Kortex/blob/master/images/kortex_logo_smaller.png)
+# ![alt text](https://github.com/londoed/Kortex/blob/master/images/kortex_logo_grain.png)
 A Chapel framework for distributed deep reinforcement learning.
 
 ## Installation
