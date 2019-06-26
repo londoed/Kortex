@@ -143,7 +143,7 @@ See official website:
 [Link](https://chapel-lang.org/)\
 [Docs](https://chapel-lang.org/docs/)\
 [Presentations](https://chapel-lang.org/presentations.html)\
-[Tutorials](https://chapel-lang.org/tutorials.html)\
+[Tutorials](https://chapel-lang.org/tutorials.html)
 
 ## Inspiration and Credit
 ![alt text](https://github.com/londoed/Kortex/blob/master/images/GORILA.png)
