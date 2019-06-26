@@ -65,16 +65,16 @@ kx.chpl_cleanup()
 ## TODO
 Algorithms:
 
-- [] DQN
-- [] DoubleDQN
-- [] DDPG
-- [] TRPO
-- [] PPO
-- [] A3C
-- [] QMix
-- [] ES
-- [] Reptile
-- [] IMPALA
+- [ ] DQN
+- [ ] DoubleDQN
+- [ ] DDPG
+- [ ] TRPO
+- [ ] PPO
+- [ ] A3C
+- [ ] QMix
+- [ ] ES
+- [ ] Reptile
+- [ ] IMPALA
 
 
 ## Contributing
