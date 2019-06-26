@@ -97,3 +97,9 @@ This framework is inspired by the original work done by DeepMind Technologies LT
 
 Also, work by Jeff Dean et al. in this paper:
 <https://static.googleusercontent.com/media/research.google.com/en//archive/large_deep_networks_nips2012.pdf>
+
+The initial implementation of Kortex was heavily inspired by work done by Carlo D'Eramo and David Tateo in
+this repository <https://github.com/AIRLab-POLIMI/mushroom>.
+
+The paper for their ideas can be found here:
+<https://github.com/carloderamo/mushroom_paper/blob/master/mushroom.pdf>
