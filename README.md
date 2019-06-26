@@ -63,6 +63,23 @@ kx.chpl_cleanup()
 ```
 
 ## TODO
+
+Main Functionality:
+
+- [ ] Parallelize code
+- [ ] Implement NumPy functionality
+- [ ] Wrappers for environment's like OpenAI's Gym
+- [ ] Unit testing
+- [ ] Neural network architectures
+- [ ] TensorFlow or PyTorch wrappers
+- [ ] Integration for use in Python
+
+Advanced Functionality:
+
+- [ ] Population based training
+- [ ] Neural Architecture Search
+- [ ] Evolutionary Strategies/Genetic Algorithms
+
 Algorithms:
 
 - [ ] DQN
@@ -72,7 +89,7 @@ Algorithms:
 - [ ] PPO
 - [ ] A3C
 - [ ] QMix
-- [ ] ES
+- [ ] MAML & Batched MAML
 - [ ] Reptile
 - [ ] IMPALA
 
