@@ -112,26 +112,39 @@ Algorithms:
 Books:
 
 Reinforcement Learning: An Introduction by Richard S. Sutton and Andrew G. Barto
+
 Algorithms for Reinforcement Learning by Csaba Szepesvari
+
 Neuro-Dynamic Programming by Dimitri P. Betsekas and John N. Tsitsiklis
-Decision Making Under UncertaintyL Theory and Application by Mykel J. Kochenderfer
+
+Decision Making Under Uncertainty: Theory and Application by Mykel J. Kochenderfer
+
 Artificial Intelligence: Foundations of Computational Agents by David Poole and Alan Mackworth
+
 Deep Reinforcement Learning Hands-On by Maxim Lapan
+
 Python Reinforcement Learning by Sudharsan Ravichandiran, Sean Saito, Rajalingappaa Shanmugamani and Yang Wenzhuo
+
 Grokking Deep Reinforcement Learning by Miguel Morales
+
 Deep Reinforcement Learning in Action by Alexander Zai and Brandon Brown
 
 Online Lectures:
 
 Introduction to Reinforcement Learning by David Silver: [Playlist](https://www.youtube.com/watch?v=2pWv7GOvuf0&list=PLqYmG7hTraZDM-OYHWgPebj2MfCFzFObQ)
-Advanced Deep Learning & Reinforcement Learning by DeepMind: <https://www.youtube.com/playlist?list=PLqYmG7hTraZDNJre23vqCGIVpfZ_K2RZs>
-Move 37 Free Course by School of AI: <https://www.theschool.ai/courses/move-37-course/>
+
+Advanced Deep Learning & Reinforcement Learning by DeepMind: [Playlist](https://www.youtube.com/playlist?list=PLqYmG7hTraZDNJre23vqCGIVpfZ_K2RZs)
+
+Move 37 Free Course by School of AI: [Course](https://www.theschool.ai/courses/move-37-course/)
 
 Code Repositories:
 
 Dopamine by Google AI: [GitHub](https://github.com/google/dopamine)
+
 Horizon by Facebook AI Research: [GitHub](https://github.com/facebookresearch/Horizon)
+
 Ray by RISE Lab at UC Berkeley: [GitHub](https://github.com/ray-project/ray)
+
 Mushroom by Carlo D'Eramo & David Tateo: [GitHub](https://github.com/AIRLab-POLIMI/mushroom)
 
 ### Chapel
