@@ -129,12 +129,12 @@ Move 37 Free Course by School of AI: [Course](https://www.theschool.ai/courses/m
 
 #### Code Repositories:
 
-Dopamine by Google AI: [GitHub](https://github.com/google/dopamine)\
-Horizon by Facebook AI Research: [GitHub](https://github.com/facebookresearch/Horizon)\
-TensorFlow Agents by Google Brain: [GitHub](https://github.com/tensorflow/agents)
-TensorFlow Reinforcement Learning (TRFL) by DeepMind: [GitHub](https://github.com/deepmind/trfl)\
-Ray by RISE Lab at UC Berkeley: [GitHub](https://github.com/ray-project/ray)\
-Mushroom by Carlo D'Eramo & David Tateo: [GitHub](https://github.com/AIRLab-POLIMI/mushroom)\
+[Dopamine](https://github.com/google/dopamine) by Google AI\
+[Horizon](https://github.com/facebookresearch/Horizon) by Facebook AI Research (FAIR)\
+[TensorFlow Agents](https://github.com/tensorflow/agents) by Google Brain\
+[TensorFlow Reinforcement Learning (TRFL)](https://github.com/deepmind/trfl) by DeepMind\
+[Ray](https://github.com/ray-project/ray) by RISE Lab at UC Berkeley\
+[Mushroom](https://github.com/AIRLab-POLIMI/mushroom) by Carlo D'Eramo & David Tateo
 
 ### Chapel
 
