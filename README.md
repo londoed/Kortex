@@ -89,7 +89,7 @@ Algorithms:
 
 - Eric Londo - creator, maintainer
 
-## Inspiration
+## Inspiration and Credit
 ![alt text](https://github.com/londoed/Kortex/blob/master/images/GORILA.png)
 
 This framework is inspired by the original work done by DeepMind Technologies LTD and can be found in this paper:
