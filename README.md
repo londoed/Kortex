@@ -62,6 +62,21 @@ alg.evaluate(n_episodes=10, render=True)
 kx.chpl_cleanup()
 ```
 
+## TODO
+Algorithms:
+
+- [] DQN
+- [] DoubleDQN
+- [] DDPG
+- [] TRPO
+- [] PPO
+- [] A3C
+- [] QMix
+- [] ES
+- [] Reptile
+- [] IMPALA
+
+
 ## Contributing
 
 1. Fork it (<https://github.com/londoed/Kortex/fork>)
@@ -79,3 +94,6 @@ kx.chpl_cleanup()
 
 This framework is inspired by the original work done by DeepMind Technologies LTD and can be found in this paper:
 <https://arxiv.org/pdf/1507.04296.pdf>
+
+Also, work by Jeff Dean et al. in this paper:
+<https://static.googleusercontent.com/media/research.google.com/en//archive/large_deep_networks_nips2012.pdf>
