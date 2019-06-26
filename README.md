@@ -143,6 +143,8 @@ Dopamine by Google AI: [GitHub](https://github.com/google/dopamine)
 
 Horizon by Facebook AI Research: [GitHub](https://github.com/facebookresearch/Horizon)
 
+TRFL by DeepMind: [GitHub](https://github.com/deepmind/trfl)
+
 Ray by RISE Lab at UC Berkeley: [GitHub](https://github.com/ray-project/ray)
 
 Mushroom by Carlo D'Eramo & David Tateo: [GitHub](https://github.com/AIRLab-POLIMI/mushroom)
