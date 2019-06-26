@@ -109,7 +109,7 @@ Algorithms:
 
 ### Reinforcement Learning
 
-Books:
+#### Books:
 
 Reinforcement Learning: An Introduction by Richard S. Sutton and Andrew G. Barto
 
@@ -129,7 +129,7 @@ Grokking Deep Reinforcement Learning by Miguel Morales
 
 Deep Reinforcement Learning in Action by Alexander Zai and Brandon Brown
 
-Online Lectures:
+#### Online Lectures:
 
 Introduction to Reinforcement Learning by David Silver: [Playlist](https://www.youtube.com/watch?v=2pWv7GOvuf0&list=PLqYmG7hTraZDM-OYHWgPebj2MfCFzFObQ)
 
@@ -137,7 +137,7 @@ Advanced Deep Learning & Reinforcement Learning by DeepMind: [Playlist](https://
 
 Move 37 Free Course by School of AI: [Course](https://www.theschool.ai/courses/move-37-course/)
 
-Code Repositories:
+#### Code Repositories:
 
 Dopamine by Google AI: [GitHub](https://github.com/google/dopamine)
 
