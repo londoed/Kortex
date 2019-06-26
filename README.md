@@ -109,10 +109,10 @@ Algorithms:
 ## Inspiration and Credit
 ![alt text](https://github.com/londoed/Kortex/blob/master/images/GORILA.png)
 
-This framework is inspired by the original work done by DeepMind Technologies LTD and can be found in this paper:
+This framework is inspired by original work done by DeepMind Technologies LTD and can be found in this paper:
 <https://arxiv.org/pdf/1507.04296.pdf>
 
-Also, work by Jeff Dean et al. in this paper:
+Also, work by Jeff Dean et al. in this paper on the DistBelief system:
 <https://static.googleusercontent.com/media/research.google.com/en//archive/large_deep_networks_nips2012.pdf>
 
 The initial implementation of Kortex was heavily inspired by work done by Carlo D'Eramo <https://github.com/carloderamo>
