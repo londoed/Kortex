@@ -1,5 +1,5 @@
 # ![alt text](https://github.com/londoed/Kortex/blob/master/images/kortex_logo_grain.png)
-A Chapel framework for distributed deep reinforcement learning.
+A framework for Deep Reinforcement Learning implemented with the Chapel Programming Language.
 
 ## Note
 
@@ -12,7 +12,7 @@ Thanks!
 
 ## Installation
 
-When completed, Kortex will be available through the Mason package manager.
+When completed, Kortex will be available through the [Mason](https://chapel-lang.org/docs/tools/mason/mason.html) package manager.
 
 ## Usage
 
