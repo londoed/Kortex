@@ -163,7 +163,7 @@ See official website:
 
 This framework is inspired by original work done by DeepMind Technologies LTD and can be found in this [paper](https://arxiv.org/pdf/1507.04296.pdf).
 
-Also, work by Jeff Dean et al. in this [paper](https://static.googleusercontent.com/media/research.google.com/en//archive/large_deep_networks_nips2012.pdf) on the DistBelief system.
+Also, work by Jeff Dean et al. in this [paper](https://static.googleusercontent.com/media/research.google.com/en//archive/large_deep_networks_nips2012.pdf) on the DistBelief system. Also, the TensorFlow [paper](https://static.googleusercontent.com/media/research.google.com/en//pubs/archive/45166.pdf) by Google Brain.
 
 The initial implementation of Kortex was heavily inspired by work done by [Carlo D'Eramo](https://github.com/carloderamo)
 and [David Tateo](https://github.com/boris-il-forte>) in this [repository](https://github.com/AIRLab-POLIMI/mushroom).
