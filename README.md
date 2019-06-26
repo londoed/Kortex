@@ -1,5 +1,5 @@
 # ![alt text](https://github.com/londoed/Kortex/blob/master/images/kortex_logo_grain.png)
-A framework for Deep Reinforcement Learning implemented with the Chapel Programming Language.
+A framework for distributed Deep Reinforcement Learning implemented in the Chapel Programming Language.
 
 ## Note
 
