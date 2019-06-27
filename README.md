@@ -22,14 +22,14 @@ Example of proper framework usage:
 use Kortex;
 
 // Agent
-model = new Regressor();
-agent = new IMPALA(model, pi, env.info,
+var model = new Regressor(),
+    agent = new IMPALA(model, pi, env.info,
                    approx_params, batch_size,
                    n_approx=1, init_replay_size,
                    max_replay_size, target_update_freg); // Initializes new IMPALA Agent
 
 // Algorithm
-alg = new Entity(agent, env); // Creates RL algorithm object
+var alg = new Entity(agent, env); // Creates RL algorithm object
 alg.fit(n_steps=init_replay_size,
           n_steps_per_fit=init_replay_size); // Implements RL algorithm
 //...//
