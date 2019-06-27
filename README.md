@@ -103,7 +103,7 @@ Algorithms:
 
 ## Contributors
 
-- Eric D. Londo (londoed@comcast.net)- creator, maintainer
+- Eric D. Londo (londoed@comcast.net) - creator, maintainer
 
 ## Resources & Learning
 
