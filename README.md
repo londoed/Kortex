@@ -3,7 +3,7 @@ A framework for distributed Deep Reinforcement Learning implemented in the Chape
 
 ## Note
 
-This work is in pre-pre-alpha stage. Right now, I'm just fleshing out ideas to get to where I want it to be (which looks like the code in the Usage section). Much of the current code probably looks more like Python than Chapel...this is because I'm waiting for tools like Arkouda (Chapel's NumPy interface to progress) to better implement linear algebra functionality, and am still becoming used to Chapel as a programming language.
+This work is in pre-pre-alpha stage. Right now, I'm just fleshing out ideas to get to where I want it to be (which looks like the code in the Usage section). Much of the current code probably looks more like Python than Chapel...this is because I'm waiting for tools like Arkouda (Chapel's NumPy interface) to better implement linear algebra functionality, and am still becoming used to Chapel as a programming language.
 
 If you have ideas on how to implement this library in a more efficient "Chapel" way, please don't hesitate
 to use my contact information below. Would love feedback and help with parallelizing the code when it comes time.
@@ -45,7 +45,7 @@ import tensorflow as tf
 kx.chpl_setup()
 
 # Agent #
-model = kx.Regressor(tf.models.keras.ResNet50())
+model = kx.Regressor(tf.keras.models.ResNet50())
 agent = kx.IMPALA(model, pi, env.info,
                    approx_params, batch_size,
                    n_approx=1, init_replay_size,
