@@ -68,7 +68,7 @@ Main Functionality:
 
 - [ ] Parallelize code
 - [ ] Implement NumPy functionality
-- [ ] Wrappers for environment's like OpenAI's Gym
+- [ ] Wrappers for environments like OpenAI's Gym
 - [ ] Unit testing
 - [ ] Neural network architectures
 - [ ] TensorFlow or PyTorch wrappers
@@ -82,14 +82,19 @@ Advanced Functionality:
 
 Algorithms:
 
-- [ ] DQN
-- [ ] DoubleDQN
+- [x] DQN
 - [ ] DDPG
+- [ ] SARSA
+- [ ] Blackbox Optimization
+- [ ] REINFORCE
+- [ ] GPOMDP
+- [ ] eNAC
+- [ ] SAC
 - [ ] TRPO
 - [ ] PPO
 - [ ] A3C
 - [ ] QMix
-- [ ] MAML & Batched MAML
+- [ ] MAML
 - [ ] Reptile
 - [ ] IMPALA
 
