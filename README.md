@@ -86,7 +86,7 @@ Algorithms:
 - [ ] DQN
 - [ ] DDPG
 - [ ] SARSA
-- [ ] Blackbox Optimization
+- [ ] Blackbox Optimization (RWR, PGPE, REPS)
 - [ ] REINFORCE
 - [ ] GPOMDP
 - [ ] eNAC

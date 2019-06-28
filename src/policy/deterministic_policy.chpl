@@ -1,5 +1,5 @@
 module Kortex {
-  // Numpy functions needed:
+  // Numpy functions needed: array_equal()
   use LinearAlgebra;
 
   class DeterministicPolicy: ParametricPolicy {
