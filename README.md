@@ -68,6 +68,7 @@ Main Functionality:
 
 - [ ] Parallelize code
 - [ ] Implement NumPy functionality
+- [ ] Better Error handling
 - [ ] Wrappers for environments like OpenAI's Gym
 - [ ] Unit testing
 - [ ] Neural network architectures
@@ -82,7 +83,7 @@ Advanced Functionality:
 
 Algorithms:
 
-- [x] DQN
+- [ ] DQN
 - [ ] DDPG
 - [ ] SARSA
 - [ ] Blackbox Optimization
