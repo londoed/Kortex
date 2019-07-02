@@ -66,6 +66,7 @@ kx.chpl_cleanup()
 
 Main Functionality:
 
+- [x] Base Classes for Modularity
 - [ ] Parallelize code
 - [ ] Implement NumPy functionality (Arkouda?)
 - [ ] Better Error handling
