@@ -67,7 +67,7 @@ kx.chpl_cleanup()
 Main Functionality:
 
 - [ ] Parallelize code
-- [ ] Implement NumPy functionality
+- [ ] Implement NumPy functionality (Arkouda?)
 - [ ] Better Error handling
 - [ ] Wrappers for environments like OpenAI's Gym
 - [ ] Unit testing
@@ -84,7 +84,7 @@ Advanced Functionality:
 Algorithms:
 
 - [x] DQN
-- [ ] DDPG
+- [x] DDPG
 - [ ] SARSA
 - [x] Blackbox Optimization (RWR, PGPE, REPS)
 - [x] REINFORCE
