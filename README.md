@@ -83,14 +83,14 @@ Advanced Functionality:
 
 Algorithms:
 
-- [ ] DQN
+- [x] DQN
 - [ ] DDPG
 - [ ] SARSA
-- [ ] Blackbox Optimization (RWR, PGPE, REPS)
-- [ ] REINFORCE
-- [ ] GPOMDP
-- [ ] eNAC
-- [ ] SAC
+- [x] Blackbox Optimization (RWR, PGPE, REPS)
+- [x] REINFORCE
+- [x] GPOMDP
+- [x] eNAC
+- [x] SAC
 - [ ] TRPO
 - [ ] PPO
 - [ ] A3C
