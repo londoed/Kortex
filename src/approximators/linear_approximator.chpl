@@ -96,7 +96,7 @@ module Kortex {
               stop = start + n_phi;
           df[start..stop] = state;
         }
-        return df
+        return df;
       }
     }
   }
