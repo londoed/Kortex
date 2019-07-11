@@ -81,6 +81,7 @@ Advanced Functionality:
 - [ ] Population based training
 - [ ] Neural Architecture Search
 - [ ] Evolutionary Strategies/Genetic Algorithms
+- [ ] α-Rank
 
 Algorithms:
 
