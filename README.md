@@ -134,7 +134,7 @@ Introduction to Reinforcement Learning by David Silver: [Playlist](https://www.y
 Advanced Deep Learning & Reinforcement Learning by DeepMind: [Playlist](https://www.youtube.com/playlist?list=PLqYmG7hTraZDNJre23vqCGIVpfZ_K2RZs)\
 Move 37 Free Course by School of AI: [Course](https://www.theschool.ai/courses/move-37-course/)
 
-#### Open-Sourced Code Repositories:
+#### Open-Sourced RL Frameworks:
 
 [Dopamine](https://github.com/google/dopamine) by Google AI\
 [Horizon](https://github.com/facebookresearch/Horizon) by Facebook AI Research (FAIR)\
