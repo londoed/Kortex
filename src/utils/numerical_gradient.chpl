@@ -18,6 +18,7 @@ module Kortex {
     */
     var w_start = policy.get_weights(),
         g = zeros(policy.weights_size);
+
     for i in 0..#w_start {
       var perturb = zeros(policy.weights_size);
       perturb[i] = eps;
@@ -29,6 +30,7 @@ module Kortex {
       g[i] = (v2 - v1) / (2 * eps);
     }
     policy.set_weights(w_start);
+
     return g;
   }
 
@@ -47,6 +49,7 @@ module Kortex {
     */
     var rho_start = dist.get_params(),
         g = zeros(dist.params_size);
+
     for i in 0..#rho_start.length {
       var perturb = zeros(dist.params_size);
       perturb[i] = eps;
@@ -58,6 +61,7 @@ module Kortex {
       g[i] = (v2 - v1) / (2 * eps);
     }
     dist.set_params(rho_start);
+    
     return g;
   }
 }

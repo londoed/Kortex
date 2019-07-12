@@ -56,6 +56,7 @@ module Kortex {
 
       if z.length == 2 {
         var action = z[1].ravel();
+        
         if q.ndim == 1 {
           return q[action];
         } else {

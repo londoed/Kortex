@@ -10,9 +10,9 @@ module Kortex {
         Constructor.
 
         Args:
-            p (array): transition probability matrix.
-            rew (array): reward matrix;
-            mu (array, None): initial state probability distribution.
+            p (Array): transition probability matrix.
+            rew (Array): reward matrix;
+            mu (Array): initial state probability distribution.
             gamma (real, .9): discount factor.
             horizon (int, np.inf): the horizon.
       */

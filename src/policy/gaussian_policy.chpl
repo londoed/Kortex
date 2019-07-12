@@ -43,7 +43,7 @@ module Kortex {
     }
 
     proc call(state: Matrix, action: Matrix) {
-    var mu, sigma, _ = compute_multivariate_gaussian(state);
+      var mu, sigma, _ = compute_multivariate_gaussian(state);
       return multivariate_normal.pdf(action, mu, sigma);
     }
 
@@ -56,9 +56,11 @@ module Kortex {
       var mu, _, inv_sigma = compute_multivariate_gaussian(state),
           delta = action - mu,
           j_mu = this.approximator.diff(state);
+
       if j_mu.shape.length == 1 {
         j_mu = expand_dims(j_mu, axis=1);
       }
+
       var g = 0.5 * j+mu.dot(inv_sigma + inv_sigma.T).dot(delta.T);
       return g;
     }
@@ -132,9 +134,11 @@ module Kortex {
           delta = action - mu,
           // Compute mean derivative
           j_mu = this.approximator.diff(state);
+
       if j_mu.shape.length == 1 {
         j_mu = expand_dims(j_mu, axis=1);
       }
+
       var g_mu = 0.5 * j_mu.dot(inv_sigma + inv_sigma.T).dot(delta.T),
           // Compute standard deviation derivative
           g_sigma = -1.0 / this.std + delta**2 / this.std**3;
@@ -206,9 +210,11 @@ module Kortex {
           diag_sigma = diag(sigma),
           delta = action - mu,
           j_mu = this.mu_approximator.diff(state);
+
       if j_mu.shape.length == 1 {
         j_mu = expand_dims(j_mu, axis=1);
       }
+
       var sigma_inv = diag(1/ diag_sigma),
           g_mu = j_mu.dot(sigma_inv).dot(delta.T),
           // Compute variance derivative
@@ -285,9 +291,11 @@ module Kortex {
           delta = action - mu,
           // Compute mean derivative
           j_mu = this.mu_approximator.diff(state);
+
       if j_mu.shape.length == 1 {
         j_mu = expand_dims(j_mu, axis=1);
       }
+      
       var sigma_inv = diag(1 / diag_sigma),
           g_mu = j_mu.dot(sigma_inv).dot(delta.T),
           // Compute variance derivative

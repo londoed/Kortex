@@ -9,7 +9,10 @@ module Kortex {
     var b: [1..0] a.eltType,
         result: [1..0] a.eltType;
 
-    for i in a do b.append(a);
+    for i in a {
+      b.append(a);
+    }
+
     if !replace {
       shuffle(b);
       result = b[1..size];
@@ -46,6 +49,7 @@ module Kortex {
         k += 1;
       } while sum <= c;
       result.append(b[k - 1]);
+      
       if !replace {
         b.remove(k - 1);
         q.remove(k - 1);

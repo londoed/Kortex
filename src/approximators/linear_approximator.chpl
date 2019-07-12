@@ -21,6 +21,7 @@ module Kortex {
       assert(input_shape.length == 1 && output_shape.length == 1);
       var input_dim = input_shape[0],
           output_dim = output_shape[0];
+
       if weights != nil {
         this.w = weights.reshape((output_dim, -1));
       } else if input_dim != nil {
@@ -56,6 +57,7 @@ module Kortex {
             The predictions of the model.
       */
       var prediction = ones((x.shape[0], this.w.shape[0]));
+
       for i, x_i in enumerate(x) {
         prediction[i] = x_i.dot(this.w.T);
       }
@@ -80,10 +82,12 @@ module Kortex {
       } else {
         var n_phi = this.w.shape[1],
             n_outs = this.w.shape[0];
+
         if action == nil {
           var shape: Tuple = (n_phi * n_outs, n_outs),
               df: Matrix = zeros(shape),
               start: int = 0;
+
           for i in 0..#n_outs {
             var stop = start + n_phi;
             df[start..stop, i] = state;

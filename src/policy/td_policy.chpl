@@ -51,8 +51,10 @@ module Kortex {
           q = this.approximator.predict(expand_dims(state, axis=0)).ravel(),
           max_a = argwhere(q == max(q)).ravel(),
           p = this.epsilon.get_value(state) / this.approximator.n_actions;
+
       if args.length == 2 {
         var action = args[1];
+
         if action in max_a {
           return p + (1.0 - this.epsilon.get_value(state)) / max_a.length;
         } else {
@@ -61,6 +63,7 @@ module Kortex {
       } else {
         var probs = ones(this.approximator.n_actions) * p;
         probs[max_a] += (1.0 - this.epsilon.get_value(state)) / max_a.length;
+
         return probs;
       }
     }
@@ -69,6 +72,7 @@ module Kortex {
       if !random_uniform() < this.epsilon(state) {
         var q = this.approximator.predict(state),
             max_a = argwhere(q == max(q)).ravel();
+            
         if max_a.length > 1 {
           max_a = Matrix(random_choice(max_a));
         }

@@ -38,6 +38,7 @@ module Kortex {
       mu = this.approximator.predict(state);
       var x = this.x_prev - this.theta * this.x_prev * this.dt + this.sigma * sqrt(this.dt) * random_normal(size=this.approximator.output_shape);
       this.x_prev = x;
+      
       return mu + x;
     }
 

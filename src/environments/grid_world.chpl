@@ -35,6 +35,7 @@ module Kortex {
       if state == nil {
         state = convert_to_int(new_state, this.width);
       }
+
       this.state = state;
       return this.state;
     }
@@ -46,6 +47,7 @@ module Kortex {
           this.viewer.line(Matrix(0, row), Matrix(this.width, row));
         }
       }
+      
       var goal_center = Matrix(0.5 + this.goal[1], this.height - (0.5 + this.goal[0]))
       this.viewer.square(goal_center, 0, 1, (0, 255, 0));
 

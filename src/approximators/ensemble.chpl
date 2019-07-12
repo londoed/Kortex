@@ -56,8 +56,10 @@ module Kortex {
             The predictions of the model.
       */
       var idx = predict_params.pop('idx', nil);
+
       if idx == nil {
         var predictions = [];
+        
         for i in 0..this.model.length {
           predictions.append(this[i].predict(z, predict_params));
         }

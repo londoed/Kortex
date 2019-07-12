@@ -3,16 +3,9 @@ module Kortex {
     /*
       The central class to implement Deep RL algorithms.
     */
-
-    proc init(agent: Agent, env: Environment, callbacks=nil) {
+    proc init(agent: Agent, env: Environment, callbacks: []=nil) {
       this.agent = agent;
       this.env = env;
-      if callbacks != nil {
-        this.callbacks = callbacks;
-      } else {
-        this.callbacks = [];
-      }
-
       this.state = nil;
       this.total_episodes = 0;
       this.total_steps = 0;
@@ -21,6 +14,12 @@ module Kortex {
       this.n_episodes = nil;
       this.n_steps_per_policy = nil;
       this.n_episodes_per_policy = nil;
+
+      if callbacks != nil {
+        this.callbacks = callbacks;
+      } else {
+        this.callbacks = [];
+      }
     }
 
     proc fit(n_steps: int, n_episoes: int, n_steps_per_policy: int, n_episodes_per_policy : int,
@@ -35,7 +34,6 @@ module Kortex {
           the policy.
           render: Whether to render the environment or not.
       */
-
       assert((n_episodes_per_policy is not None and n_steps_per_policy is None) || (n_episodes_per_policy is None and n_steps_per_policy is not None))
 
       this.n_steps_per_policy = n_steps_per_policy;
@@ -62,7 +60,6 @@ module Kortex {
             n_episodes: Number of episodes to move the agent.
             render: Whether to render the environment or not.
       */
-
       var policy_cond: bool = false;
       return run(n_steps, n_episodes, policy_cond, render, init_states);
     }
@@ -78,7 +75,7 @@ module Kortex {
 
       if n_steps != nil {
         var move_cond: bool = this.total_steps < n_steps;
-        return Entity.run_impl(move_cond, policy_cond, render, init_states);
+        return run_impl(move_cond, policy_cond, render, init_states);
       }
     }
 
@@ -95,6 +92,7 @@ module Kortex {
         if end {
           this.reset(init_states);
         }
+        
         var sample = Entity.step(render);
         dataset.append(sample);
         this.total_steps += 1;
@@ -152,7 +150,6 @@ module Kortex {
       /*
         Reset the inital state of the agent.
       */
-
       if init_states == nil || this.total_episodes_counter == this.n_episodes {
         init_states = nil;
       } else {

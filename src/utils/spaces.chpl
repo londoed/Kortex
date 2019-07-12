@@ -31,6 +31,7 @@ module Kortex {
         this.low = low;
         this.high = high;
         this.shape = shape;
+
         if isscalar(low) && isscalar(high) {
           this.low += ZerosMatrix(shape);
           this.high += ZerosMatrix(shape);

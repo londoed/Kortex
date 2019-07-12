@@ -45,8 +45,10 @@ module Kortex {
                 of each regressor.
       */
       state, q = preprocess(state, q);
+
       for i in 0..#this.model.length {
         var idxs = argwhere((action == i)[.., 0]).ravel();
+
         if idxs.size {
           this.model[i].fit(state[idxs, ..], q[idxs], fit_params);
         }
@@ -74,14 +76,17 @@ module Kortex {
       if x.length == 2 {
         var action = z[1],
             q = zeros(state.shape[0]);
+
         for i in 0..#n_actions {
           var idxs = argwhere((action == 1)[.., 0]).ravel();
+
           if idxs.size {
             q[idxs] = this.model[i].predict(state[idxs, ..], predict_params);
           }
         }
       } else {
         var q = zeros((state.shape[0], this.n_actions));
+
         for i in 0..#n_actions {
           q[.., i] = this.model[i].predict(state, predict_params).flatten();
         }
@@ -108,6 +113,7 @@ module Kortex {
 
     proc get_weights() {
       var w = [];
+
       for m in this.model {
         w.append(m.get_weights());
       }
@@ -116,6 +122,7 @@ module Kortex {
 
     proc set_weights(w: []) {
       var size = this.model[0].weights_size;
+
       for i, m in enumerate(this.model) {
         var start = i * size,
             stop = start + size;
@@ -126,6 +133,7 @@ module Kortex {
     proc diff(state: Matrix, action: Matrix) {
       if action == nil {
         var diff = [];
+
         for m in this.model {
           diff.append(m.diff(state));
         }
@@ -145,6 +153,7 @@ module Kortex {
       }
 
       if q != nil {
+        
         for p in this.output_preprocessor {
           q = p(q);
         }

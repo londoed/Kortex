@@ -40,7 +40,8 @@ module Kortex {
         assert(this.state_components.length == this.range.length);
       }
 
-      this.size: real = 1;
+      this.size: real = 1.0;
+
       for s in this.n_tiles {
         this.size *= s;
       }
@@ -50,8 +51,10 @@ module Kortex {
       if this.state_components != nil {
         x = x[this.state_components];
       }
+
       var multiplier: int = 1,
           tile_index: int = 0;
+
       for i, (r, N) in enumerate(zip(this.range, this.n_tiles)) {
         if r[0] <= x[i] < r[1] {
           var width = r[1] - r[0],
@@ -92,6 +95,7 @@ module Kortex {
           shift = compute_shift(uniform, low.length),
           width = (high - low) / (Matrix(n_tiles) * n_tilings - shift * n_tilings + shift),
           offset = width;
+
       for i in 0..#n_tilings {
         var x_min = low - (n_tilings - 1 - i) * offset * shift,
             x_max = high + i * offset;
@@ -108,9 +112,11 @@ module Kortex {
         return 1;
       } else {
         shift = empty(n_dims);
+
         for i in 0..#n_dims {
           shift[i] = 2 * i + 1;
         }
+
         return shift;
       }
     }

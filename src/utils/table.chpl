@@ -67,10 +67,13 @@ module Kortex {
           expand_dims(i);
         }
       }
+
       var state = z[0],
           values = [];
+
       if z.length == 2 {
         var action = z[1];
+        
         for i in 0..state.length {
           var val = self[state[i], action[i]];
           values.append(val);

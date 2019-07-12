@@ -104,6 +104,7 @@ module Kortex {
           g_cov = delta**2 / (this.std**3) - 1 / this.std;
       g[..n_dims] = g_mean;
       g[n_dims..] = g_cov;
+
       return g;
     }
 
@@ -183,6 +184,7 @@ module Kortex {
           g_cov = S - diag(diag(inv_chol));
       g[..n_dims] = g_mean;
       g[n_dims..] = g_cov.T[tril_indices(n_dims)];
+
       return g;
     }
 
@@ -191,6 +193,7 @@ module Kortex {
           n_dims: int = this.mu.length;
       rho[..n_dims] = this.mu;
       rho[n_dims..] = this.chol_sigma[tril_indices(n_dims)];
+      
       return rho;
     }
 

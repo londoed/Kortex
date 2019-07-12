@@ -64,9 +64,11 @@ module Kortex {
       */
       if this.approximator.type == EnsembleTable {
         var qs = [];
+
         for m in this.approximator.model {
           qs.append(m.table);
         }
+
         this.qs.append(deepcopy(mean(qs, 0)));
       } else {
         this.qs.append(deepcopy(this.approximator.table));
@@ -149,9 +151,11 @@ module Kortex {
           kwargs (AssociativeArray): an empty associatve array.
       */
       var value = this.parameter.get_value(this.idx);
+
       if value.type == Matrix {
         value = Matrix(value);
       }
+      
       this.p.append(value);
     }
 

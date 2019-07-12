@@ -21,12 +21,13 @@ module Kortex {
         c = [],
         total_points: int = 1;
     b = 0.0;
+
     for i, n in enumerate(n_centers) {
       var start = low[i];
           end = high[i];
-
       b[i] = (end - start)**2 / n**3;
       var m: real = abs(start - end) / n;
+
       if n == 1 {
         var c_i = (start + end) / 2.0;
         c.append(Vector(c_i));
@@ -38,13 +39,16 @@ module Kortex {
     }
     var n_rows: int = 1,
         n_cols: int = 0,
-        grid = Matrix(total_points, n_features)
+        grid = Matrix(total_points, n_features);
+
     for discrete_values in c {
       var i1 = 0,
           dim = discrete_values.length;
+
       for i in 0..#dim {
         for r in 0..#n_rows {
           var idx_r = r + i * n_rows;
+
           for c in 0..#n_cois {
             grid[idx_r, c] = grid[r, c];
           }

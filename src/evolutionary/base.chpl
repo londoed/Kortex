@@ -95,10 +95,13 @@ module Kortex {
         this.orig_fitness_vals[g][i] = fitness_val;
         total_fitness += fitness_val;
       }
+
       if total_fitness > 0 {
         this.norm_fitness_vals[g] = this.orig_fitness_vals[g] / total_fitness;
       }
+
       var prev_norm_fitness_val = 0;
+
       for i in 0..#this.N {
         this.total_fitness_vals[g][i] = (this.norm_fitness_vals[g][i] + prev_norm_fitness_val);
         prev_norm_fitness_val = this.total_fitness_vals[g][i];
@@ -109,30 +112,38 @@ module Kortex {
       var rand_nums = random.uniform(0, 1, 2),
           prev_individual_fit = 0,
           j: int = 0;
+
       while true {
         if j >= this.N {
           j = 0;
           rand_nums = random.uniform(0, 1, 2);
         }
+
         var individual_fit = this.total_fitness_vals[g][j];
+
         if rand_nums[0] < this.total_fitness_vals[g][0] {
           this.parents[g][0] = this.population[0];
         }
+
         if j != 0 {
           if prev_individual_fit <= rand_nums[0] <= individual_fit {
             this.parents[g][0] = this.population[j];
             break;
           }
         }
+
         prev_individual_fit = individual_fit;
         j += 1;
       }
+
       prev_individual_fit = 0;
       j = 0;
       var cycles = 0;
+
       while true {
         if j >= this.N {
           cycles += j;
+
           if cycles >= 100 {
             this.parents[g][1] = this.parents[g][0];
             break;
@@ -140,11 +151,14 @@ module Kortex {
             j = 0;
             rand_nums = random.uniform(0, 1, 2);
           }
+
           individual_fit = this.total_fitness_vals[g][j];
+
           if rand_nums[1] < this.total_fitness_vals[g][0] {
             this.parents[g][1] = this.population[0];
             break;
           }
+
           if j != 0 {
             if prev_individual_fit <= rand_nums[1] <= individual_fit {
               if this.population[j] != this.parents[g][0] {
@@ -163,6 +177,7 @@ module Kortex {
       for parent in this.parents[g] {
         for index_bit in 0..this.l {
           var to_mutate = this.pr_mut_dist.rvs(size=1);
+
           if to_mutate {
             parent.invert(index_bit);
           }
@@ -172,6 +187,7 @@ module Kortex {
 
     proc crossover(g: int) {
       var to_crossover = this.pr_cr_dist.rvs(size=1);
+
       if to_crossover {
         var c1 = new BitArray(length=this.l),
             c2 = new BitArray(length=this.l),

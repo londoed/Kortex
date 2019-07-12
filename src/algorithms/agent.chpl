@@ -41,7 +41,6 @@ module Kortex {
         Returns:
           The action to be executed.
       */
-
       if this.phi != nil {
         var state = this.phi(state)
       }

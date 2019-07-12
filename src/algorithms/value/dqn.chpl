@@ -73,11 +73,14 @@ module Kortex {
 
     proc fit(dataset: []) {
       this.replay_memory.add(dataset);
+
       if this.replay_memory.initialized {
         var state, action, reward, next_state, absorbing, _ = this.replay_memory.get(this.batch_size);
+
         if this.clip_reward {
           reward = clip(reward, -1, 1);
         }
+
         var q_next = next_q(next_state, absorbing),
             q = reward + this.env_info.gamma * q_next;
 
@@ -109,6 +112,7 @@ module Kortex {
             Maximum action-value for each state in ``next_state``.
       */
       var q = this.target_approximator.predict(next_state);
+
       if any(absorbing) {
         q *= 1 - absorbing.reshape(-1, 1);
       }
@@ -132,6 +136,7 @@ module Kortex {
       var q = this.approximator.predict(next_state),
           max_a = argmax(q, axis=1),
           double_q = this.target_approximator.predict(next_state, max_a);
+
       if any(absorbing) {
         double_q *= 1 - absorbing;
       }
@@ -156,6 +161,7 @@ module Kortex {
       var idx = this.n_updates / this.target_update_freq % this.n_approximators;
       this.target_approximator.model[idx].set_weights{
         this.approximator.model.get_weights()};
+
       if this.n_fitted_target_models < this.n_approximators {
         this.n_fitted_target_models += 1;
       }
@@ -163,13 +169,17 @@ module Kortex {
 
     proc next_q(next_state: [], absorbing: []) {
       var q = [];
+
       for idx in 0..#this.n_fitted_target_models {
         q.append(this.target_approximator.predict(next_state, idx=idx));
       }
+
       q = mean(q, axis=0);
+
       if any(absorbing) {
         q *= 1 - absorbing.reshape(-1, 1);
       }
+      
       return max(q, axis=1);
     }
   }

@@ -51,6 +51,7 @@ module Kortex {
 
       Q[idx, idx] = 1.0 - eps;
       R[idx, idx] = eps;
+
       return LQR(A, B, Q, R, random_init, gamma, horizon);
     }
 
@@ -72,6 +73,7 @@ module Kortex {
           u = action,
           reward = -(x.dot(this.Q).dot(x) + u.dot(this.R).dot(u));
       this.state = this.A.dot(x) + this.B.dot(u);
+      
       return this.state, reward, false, new AssociativeArray();
     }
   }

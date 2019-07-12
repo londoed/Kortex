@@ -9,6 +9,7 @@ module Kortex {
       } else {
         this.tiles = [tiles];
       }
+
       this.size = 0;
 
       for tiling in this.tiles {
@@ -29,6 +30,7 @@ module Kortex {
       for s in x {
         var out = zeros(),
             offset = 0;
+            
         for tiling in this.tiles {
           var idx = tiling(s);
           if idx != nil {

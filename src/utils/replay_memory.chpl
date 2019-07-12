@@ -30,7 +30,6 @@ module Kortex {
         Args:
             dataset (array): list of elements to add to the replay memory.
       */
-
       for i in 0..#dataset.length {
         this.states[this.idx] = dataset[i][0];
         this.actions[this.idx] = dataset[i][1];
@@ -38,8 +37,8 @@ module Kortex {
         this.next_states[this.idx] = dataset[i][3];
         this.absorbing[this.idx] = dataset[i][4];
         this.last[this.idx] = dataset[i][5];
-
         this.idx += 1;
+
         if this.idx == this.max_size {
           this.full = true;
           this.idx = 0;
@@ -96,7 +95,6 @@ module Kortex {
       this.next_states = [nil for _ in 0..#this.max_size];
       this.absorbing = [nil for _ in 0..#this.max_size];
       this.last = [nil for _ in 0..#this.max_size];
-
       this.sample_idxs = random_choice(this.init_size, this.init_size, replace=false);
       this.current_sample_idx = 0;
     }

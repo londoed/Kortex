@@ -17,6 +17,7 @@ module Kortex {
         when provided.
     */
     assert(dataset.length > 0);
+
     if features == nil {
       var shape = dataset[0][0].shape;
     } else {
@@ -63,6 +64,7 @@ module Kortex {
     */
     var lengths = [],
         l = 0;
+
     for sample in dataset {
       l += 1;
       if sample[-1] == 1 {
@@ -85,6 +87,7 @@ module Kortex {
           A subset of the dataset containing the first ``n_episodes`` episodes.
     */
     assert(n_episodes >= 0);
+
     if n_episodes == 0 {
       return Matrix([[]]);
     }
@@ -92,6 +95,7 @@ module Kortex {
     dataset = Vector(dataset);
     var last_idxs = argwhere(dataset[..-1] == 1).ravel(),
         sub_dataset = dataset[..last_idxs[n_episodes - 1] + 1, ..];
+
     if parse == false {
       return sub_dataset;
     } else {
@@ -113,6 +117,7 @@ module Kortex {
           samples.
     */
     assert(n_samples >= 0);
+
     if n_samples == 0 {
       return Matrix([[]]);
     }
@@ -120,6 +125,7 @@ module Kortex {
     dataset = Vector(dataset);
     var idxs: [] int = randint(dataset.shape[0], size=n_samples),
         sub_dataset = dataset[idxs, ...];
+
     if parse == false {
       return sub_dataset;
     } else {
@@ -140,9 +146,11 @@ module Kortex {
     var js = [],
         j: real = 0.0,
         episode_steps: int = 0;
+
     for i in 0..#dataset.length {
       j += gamma**episode_steps * dataset[i][2];
       episode_steps += 1;
+
       if dataset[i][-1] || 1 == dataset.length - 1 {
         js.append(j);
         j = 0.0;
@@ -177,6 +185,7 @@ module Kortex {
     for i in 0..#dataset.length {
       score += dataset[i][2];
       episode_steps += 1;
+      
       if dataset[i][-1] {
         scores.append(score);
         score = 0.0;

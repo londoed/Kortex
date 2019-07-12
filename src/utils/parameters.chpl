@@ -35,7 +35,9 @@ module Kortex {
       if this._n_updates.table.size == 1 {
         idx = [];
       }
+
       update(idx);
+      
       return get_value(idx);
     }
 

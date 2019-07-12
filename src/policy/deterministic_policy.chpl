@@ -32,6 +32,7 @@ module Kortex {
 
     proc call(state: Matrix, action: Matrix) {
       var policy_action = this.approximator.predict(state);
+      
       if array_equal(action, policy_action) {
         return 1.0;
       } else {

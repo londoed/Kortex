@@ -64,6 +64,7 @@ module Kortex {
 
       // "Boosted Fitted Q-Iteration". Tosatto S. et al.. 2017.
       this.boosted = boosted;
+
       if this.boosted {
         this.prediction: real = 0.0;
         this.next_q: real = 0.0;
@@ -108,6 +109,7 @@ module Kortex {
         if any(absorbing) {
           q *= 1 - absorbing.reshape(-1, 1);
         }
+
         var max_q = max(q, axis=1);
         this.target = reward + this.env_info.gamma * max_q;
       }
@@ -131,6 +133,7 @@ module Kortex {
         if any(absorbing) {
           this.next_q *= 1 - absorbing.reshape(-1, 1);
         }
+
         var max_q = max(this.next_q, axis=1);
         this.target = reward + this.env_info.gamma * max_q;
       }
@@ -160,6 +163,7 @@ module Kortex {
           next_state = [],
           absorbing = [],
           half = x.length / 2;
+
       for i in 0..2 {
         var s, a, r, ss, ab, _ = parse_dataset(x[i * half..(i + 1) * half]);
         state.append(s);
@@ -208,11 +212,14 @@ module Kortex {
       var phi_state, action, reward, phi_next_state, absorbing, _ = parse_dataset(dataset, this.phi),
           phi_state_action = get_action_features(phi_state, action, this.env_info.action_space.n),
           norm = INFINITY;
+
       while norm > this.epsilon {
         var q = this.approximator.predict(phi_next_state);
+
         if any(absorbing) {
           q *= 1 - absorbing.reshape(-1, 1);
         }
+
         var next_action = argmax(q, axis=1).reshape(-1, 1),
             phi_next_state_action = get_action_features(phi_next_state, next_action, this.env_info.action_space.n),
             tmp = phi_state_action - this.env_info.gamma * phi_next_state_action;
@@ -226,6 +233,7 @@ module Kortex {
         } else {
           var w = pinv(this.A).dot(this.b).ravel();
         }
+        
         this.approximator.set_weights(w);
         norm = norm(w - old_w);
       }

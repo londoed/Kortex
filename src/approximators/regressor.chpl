@@ -20,7 +20,8 @@ module Kortex {
       listed before simply providing a ``n_models`` parameter greater than 1.
     */
 
-    proc init(approximator, input_shape: Tuple, output+shape: Tuple=(1,), n_actions: int=nil, n_models: int=1, params: []) {
+    proc init(approximator, input_shape: Tuple, output+shape: Tuple=(1,), n_actions: int=nil,
+              n_models: int=1, params: []) {
       /*
         Constructor.
 
@@ -52,6 +53,7 @@ module Kortex {
 
       if n_actions != nil {
         assert(this.output_shape.length == 1 && n_actions >= 2);
+
         if n_actions == this.output_shape[0] {
           this.impl = new QRegressor(approximator, params);
         } else {

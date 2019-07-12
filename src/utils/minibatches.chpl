@@ -38,9 +38,11 @@ module Kortex {
 
     for (batch_start, batch_end) in batches {
       var batch = [];
+
       for i in 0..#dataset.length {
         batch.append(dataset[i][indexes[batch_start..batch_end]]);
       }
+      
       yield batch;
     }
   }

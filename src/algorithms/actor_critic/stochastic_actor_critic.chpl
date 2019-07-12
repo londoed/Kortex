@@ -34,6 +34,7 @@ module Kortex {
       } else {
         var input_shape = env_info.observation_space.shape;
       }
+
       this.V = new Regressor(LinearApproximator, input_shape=input_shape, output_shape=(1,));
       this.e_v = zeros(this.V.weights_size);
       this.e_theta = zeros(this.policy.weights_size);
@@ -48,6 +49,7 @@ module Kortex {
     proc fit(dataset: []) {
       for step in dataset {
         var s, a, r, ss, absorbing, _ = step;
+
         if this.psi != nil {
           var s_phi = this.phi(s),
               s_psi = this.psi(s),
@@ -113,6 +115,7 @@ module Kortex {
       } else {
         var input_shape = env_info.observation_space.shape;
       }
+      
       this.V = new Regressor(LinearApproximator, input_shape=input_shape, output_shape=(1,));
       this.e_v = zeros(this.V.weights_size);
       this.e_theta = zeros(this.policy.weights_size);

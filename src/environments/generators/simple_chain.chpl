@@ -2,7 +2,8 @@ module Kortex {
 
   use LinearAlgebra;
 
-  proc generate_simple_chain(state_n: int, goal_states: [], prob: real, rew: real, mu: [], gamma: real=0.9, horizon: int=100) {
+  proc generate_simple_chain(state_n: int, goal_states: [], prob: real, rew: real, mu: [],
+                             gamma: real=0.9, horizon: int=100) {
     /*
       Simple chain generator.
 

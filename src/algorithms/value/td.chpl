@@ -187,6 +187,7 @@ module Kortex {
       */
       var means = this.Q[next_state, ..],
           sigmas = zeros(this.Q.shape[-1]);
+
       for a in 0..#sigmas.size {
         sigmas[a] = this.sigma[next_state, Matrix([a])];
       }
@@ -251,6 +252,7 @@ module Kortex {
     proc update(state: Matrix, action: Matrix, reward: Matrix, next_state: Matrix, absorbing: Matrix) {
       var q_current = this.Q[state, action];
       this.next_action = draw_action(next_state);
+
       if !absorbing {
         var q_next = this.Q[next_state, this.next_action];
       } else {
@@ -408,9 +410,11 @@ module Kortex {
       var phi_state = this.phi(state),
           phi_state_action = get_action_features(phi_state, action, this.env_info.action_space.n),
           q_current = this.Q.predict(phi_state, action);
+
       if this.q_old == nil {
         this.q_old = q_current;
       }
+
       var alpha = this.alpha(state, action),
           e_phi = this.env_info.gamma * this.lambda * this.e + alpha * (1.0 - this.env_info.gamma * this.lambda * e_phi) * phi_state_action;
       this.next_action = draw_action(next_state);
@@ -526,6 +530,7 @@ module Kortex {
         } else {
           beta = this.beta(state, action, target=q_next);
         }
+        
         this.Q_tilde[state, action] += beta * (q_next - this.Q_tilde[state, action]);
       }
       this.Q[state, action] = this.R_tilde[state, action] + this.env_info.gamma * this.Q_tilde[state, action];

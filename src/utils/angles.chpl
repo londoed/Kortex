@@ -28,6 +28,7 @@ module Kortex {
           The wrapped angle.
     */
     var a = normalize_angle_positive(angle);
+    
     if a > PI {
       a -= 2.0 * PI;
     }

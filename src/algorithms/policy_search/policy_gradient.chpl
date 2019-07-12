@@ -29,6 +29,7 @@ module Kortex {
       this.df = 1.0;
       this.J_episode = 0.0;
       init_update();
+
       for sample in dataset {
         var x, u, r, xn, _, last = parse(sample);
         step_update(x, u, r);
@@ -56,6 +57,7 @@ module Kortex {
       */
       var res = compute_gradient(J),
           theta = this.policy.get_weights();
+
       if res.length == 1 {
         var grad = res[0],
             delta = this.learning_rate(grad) * grad;
@@ -63,6 +65,7 @@ module Kortex {
         var grad, nat_grad = res,
             delta = this.learning_rate(grad, nat_grad) * nat_grad;
       }
+
       var theta_new = theta + delta;
       this.policy.set_weights(theta_new);
     }
@@ -125,10 +128,11 @@ module Kortex {
           next_state = sample[3],
           absorbing = sample[4],
           last = sample[5];
+
       if this.phi != nil {
         state = this.phi(state);
-      return Tuple(state, action, reward, next_state, absorbing, last);
       }
+      return Tuple(state, action, reward, next_state, absorbing, last);
     }
   }
 
@@ -154,14 +158,17 @@ module Kortex {
       var baseline = mean(this.baseline_num, axis=0) / mean(this.baseline_den, axis=0);
       baseline[logical_not(isfinite(baseline))] = 0.0;
       var grad_J_episode = [];
+
       for i, J_episode in enumerate(J) {
         var sum_d_log_pi = this.list_sum_d_log_pi[i];
         grad_J_episode.append(sum_d_log_pi * (J_episode - baseline));
       }
+
       var grad_J = mean(grad_J_episode, axis=0);
       this.list_sum_d_log_pi = [];
       this.baseline_num = [];
       this.baseline_den = [];
+
       return grad_J;
     }
 
@@ -207,6 +214,7 @@ module Kortex {
     proc compute_gradient(J: []) {
       var gradient = zeros(this.policy.weights_size),
           n_episodes = this.list_sum_d_log_pi_ep.length;
+
       for i in 0..#n_episodes.length {
         var list_sum_d_log_pi = this.list_sum_d_log_pi_ep[i],
             list_reward = this.list_reward_ep[i],
@@ -225,6 +233,7 @@ module Kortex {
       this.list_sum_d_log_pi_ep = [];
       this.baseline_num = [];
       this.baseline_den = [];
+
       return gradient;
     }
 
@@ -269,7 +278,8 @@ module Kortex {
       "A Survey on Policy Search for Robotics", Deisenroth M. P., Neumann G.,
       Peters J. 2013.
     */
-    proc init(policy: Policy, env_info: ENVInfo, learning_rate: real, features: AssociatveArray=nil, critic_features: Features=nil) {
+    proc init(policy: Policy, env_info: ENVInfo, learning_rate: real, features: AssociatveArray=nil,
+              critic_features: Features=nil) {
       /*
         Constructor.
 
@@ -289,6 +299,7 @@ module Kortex {
           w_and_v = pinv(PSI).dot(R),
           nat_grad = w_and_v[..this.policy.weights_size];
       this.sum_grad_log_list = [];
+
       return nat_grad;
     }
 

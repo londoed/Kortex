@@ -65,7 +65,8 @@ module Kortex {
       "A Survey on Policy Search for Robotics", Deisenroth M. P., Neumann G.,
       Peters J.. 2013.
     */
-    proc init(distribution: Distribution, policy: Policy, env_info: ENVInfo, beta: real, features: AssociatveArray=nil) {
+    proc init(distribution: Distribution, policy: Policy, env_info: ENVInfo, beta: real,
+              features: AssociatveArray=nil) {
       /*
         Constructor.
 
@@ -91,7 +92,8 @@ module Kortex {
       "A Survey on Policy Search for Robotics", Deisenroth M. P., Neumann G.,
       Peters J.. 2013.
     */
-    proc init(distribution: Distribution, policy: Policy, env_info: ENVInfo, learning_rate: Parameter, features: AssociatveArray=nil) {
+    proc init(distribution: Distribution, policy: Policy, env_info: ENVInfo, learning_rate: Parameter,
+              features: AssociatveArray=nil) {
       this.learning_rate = learning_rate;
       super().init(distribution, policy, env_info, features);
     }
@@ -100,6 +102,7 @@ module Kortex {
       var baseline_num_list = [],
           baseline_den_list = [],
           diff_log_dist_list = [];
+
       for i in 0..#Jep.length {
         var J_i = Jep[i],
             theta_i = theta[i],
@@ -110,17 +113,21 @@ module Kortex {
         baseline_num_list.append(J_i * diff_log_dist2);
         baseline_den_list.append(diff_log_dist2);
       }
+
       var baseline = mean(baseline_num_list, axis=0) / mean(baseline_den_list, axis=0);
       baseline[logical_not(isfinite(baseline))] = 0.0;
 
       var grad_J_list = [];
+
       for i in 0..#Jep.length {
         diff_log_dist = diff_log_dist[i];
         J_i = Jep[i];
         grad_J_list.append(diff_log_dist * (J_i - baseline));
       }
+
       grad_J = mean(grad_J_list, axis=0);
       var omega = this.distribution.get_params();
+
       omega += this.learning_rate(grad_J) * grad_J;
       this.distribution.set_params(omega);
     }
@@ -133,7 +140,8 @@ module Kortex {
       "A Survey on Policy Search for Robotics", Deisenroth M. P., Neumann G.,
       Peters J.. 2013.
     */
-    proc init(distribution: Distribution, policy: Policy, env_info: ENVInfo, eps: real, features: AssociatveArray=nil) {
+    proc init(distribution: Distribution, policy: Policy, env_info: ENVInfo, eps: real,
+              features: AssociatveArray=nil) {
       /*
         Constructor.
 
@@ -153,6 +161,7 @@ module Kortex {
                          bounds=((finfo(real).eps, inf),),
                          args=(this.eps, Jep, theta)),
           eta_opt = asscalar(res.x);
+
       Jep -= max(Jep);
       var d = exp(Jep / eta_opt);
       this.distribution.mle(theta, d);

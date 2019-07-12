@@ -1,5 +1,5 @@
 module Kortex {
-  
+
   use LinearAlgebra;
 
   class GaussianRBF {
@@ -38,6 +38,7 @@ module Kortex {
 
     proc str() {
       var name = "GaussianRBF " + this.mean: string + " " + this.scale: string;
+
       if this.dim != nil {
         name += " " + this.dim: string;
       }
@@ -69,6 +70,7 @@ module Kortex {
 
       var grid, b = uniform_grid(n_centers, low, high),
           basis = [];
+          
       for i in 0..#grid.length {
         var v = grid[i, ..],
             bf = new GaussianRBF(v, b, dimensions),
