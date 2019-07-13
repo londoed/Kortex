@@ -34,6 +34,17 @@ alg.fit(n_steps=init_replay_size,
           n_steps_per_fit=init_replay_size); // Implements RL algorithm
 //...//
 alg.evaluate(n_episodes=10, render=true); // Evaluates success/failure of algorithm
+
+// Distributed Training //
+var model = new ResNet50(),
+    agents = new DistributedDQN(num_agents, model, pi, env.info,
+                                approx_params, batch_size, n_approx=1,
+                                init_replay_size, max_replay_size,
+                                target_update_freg);
+
+var alg = new DistributedEntity(agents, env);
+alg.fit(n_steps=init_replay_size, n_steps_per_fit=init_replay_size);
+alg.evaluate(n_episodes=100, render=true);
 ```
 
 Eventually, Kortex will be able to be called through Python while still using Chapel's parallelism.
