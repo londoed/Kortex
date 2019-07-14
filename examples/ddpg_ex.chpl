@@ -106,6 +106,6 @@ proc main() {
 
   for alg in algs {
     writeln("Algorithm: ", alg.name);
-    experiment(alg=alg, n_epochs=50, n_steps=1_000, n_steps_test=2_000);
+    run(alg=alg, n_epochs=50, n_steps=1_000, n_steps_test=2_000);
   }
 }
