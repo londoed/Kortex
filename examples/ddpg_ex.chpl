@@ -95,6 +95,5 @@ proc run(n_epochs, n_steps, n_steps_test) {
   }
 }
 
-proc main() {
-    run(n_epochs=50, n_steps=1_000, n_steps_test=2_000);
-}
+
+run(n_epochs=50, n_steps=1_000, n_steps_test=2_000);
