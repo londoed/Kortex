@@ -45,7 +45,7 @@ class ActorNetwork: NeuralNetworkBase {
   }
 }
 
-proc run(alg, n_epochs, n_steps, n_steps_test) {
+proc run(n_epochs, n_steps, n_steps_test) {
   random.seed(91);
 
   // Environment
@@ -78,34 +78,23 @@ proc run(alg, n_epochs, n_steps, n_steps_test) {
                        "input_shape" => critic_input_shape, "output_shape" => (1,)];
 
   // Agent
-  var agent = alg(actor_approximator, critic_approximator, policy_class,
+  var agent = new DDPG(actor_approximator, critic_approximator, policy_class,
                   env.info, batch_size=batch_size, init_replay_size=init_replay_size,
                   max_replay_size=max_replay_size, tau=0.001, actor_params=actor_params,
                   critic_params=critic_params, policy_params=policy_params);
 
   // Algorithm
-  var entity = new Entity(agent, env);
-  entity.fit(n_steps=init_replay_size, n_steps_per_fit=init_replay_size);
-
-  var dataset = entity.evaluate(n_steps=n_steps_test, render=false),
-      J = compute_J(dataset, gamma_eval);
-
-  writeln("J: ", mean(J));
+  var alg = new Entity(agent, env);
 
   for n in 0..#n_epochs {
     writeln("Epoch: ", n);
-    entity.fit(n_steps=n_steps, n_steps_per_fit=1);
-    dataset = entity.evaluate(n_steps=n_steps_test, render=true);
-    J = compute_J(dataset, gamma_eval);
+    alg.fit(n_steps=n_steps, n_steps_per_fit=1);
+    alg_eval = alg.evaluate(n_steps=n_steps_test, render=true);
+    J = compute_J(alg_eval, gamma_eval);
     writeln("J: ", mean(J));
   }
 }
 
 proc main() {
-  var algs = [DDPG(), IMPALA()];
-
-  for alg in algs {
-    writeln("Algorithm: ", alg.name);
-    run(alg=alg, n_epochs=50, n_steps=1_000, n_steps_test=2_000);
-  }
+    run(n_epochs=50, n_steps=1_000, n_steps_test=2_000);
 }
