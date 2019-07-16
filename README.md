@@ -142,6 +142,7 @@ Move 37 Free Course by School of AI: [Course](https://www.theschool.ai/courses/m
 [TensorFlow Agents](https://github.com/tensorflow/agents) by Google Brain\
 [TensorFlow Reinforcement Learning (TRFL)](https://github.com/deepmind/trfl) by DeepMind\
 [Ray](https://github.com/ray-project/ray) by RISE Lab at UC Berkeley\
+[Huskarl](https://github.com/danaugrs/huskarl) by Daniel Salvadori\
 [Mushroom](https://github.com/AIRLab-POLIMI/mushroom) by Carlo D'Eramo & David Tateo
 
 ### Chapel
