@@ -27,10 +27,10 @@ model.optimizer = snt.optimizers.Adam(0.1)
 # Building an IMPALA agent that runs on 10 GPUs with 25 agents playing in parallel #
 num_agents = 25
 agents = kx.IMPALA(num_agents, model, pi, env.info,
-                                approx_params, batch_size,
-                                n_approx=1, init_replay_size,
-                                max_replay_size, target_update_freq,
-                                target_locale='gpu', num_locales=10)
+                   approx_params, batch_size, n_approx=1,
+                   init_replay_size, max_replay_size, 
+                   target_update_freq, target_locale='gpu',
+                   num_locales=10)
 
 # Building the RL algorithm object #
 alg = kx.Entity(agents, env)
