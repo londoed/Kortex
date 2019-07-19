@@ -10,8 +10,8 @@ kx.chpl_setup()
 
 # Environment wrapped around Gym's Atari suite #
 env = kx.Atari('BreakoutDeterministic-v4', screen_width=84,
-                       screen_height=84, ends_at_life=True,
-                       history_length=4, max_no_op_actions=30)
+                screen_height=84, ends_at_life=True,
+                history_length=4, max_no_op_actions=30)
 
 # Can use other python libraries and packages for network architecture #
 model = snt.Sequential([
